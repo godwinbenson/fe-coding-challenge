@@ -1,6 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { selectCell, resetGame } from "../../store/actions/moves";
+import Cell from "../board/Cell";
 import "./index.css";
 
 const selectBoard = (state) => state.board;
@@ -27,7 +28,7 @@ export const Board = () => {
           {board.map((cellGroup, cellGroupIndex) =>
             cellGroup.map((cell, cellIndex) => (
               <Cell
-                key={cellGroupIndex + cellIndex}
+                key={`${cellGroupIndex}${cellIndex}`}
                 player={cell}
                 winner={game.winner}
                 onClick={() =>
@@ -42,18 +43,6 @@ export const Board = () => {
 
         <p style={{ textAlign: "center" }}>Winner: {game.winner}</p>
       </div>
-    </div>
-  );
-};
-
-const Cell = ({ player, winner, onClick, ...rest }) => {
-  return (
-    <div
-      className={`Cell ${player}`}
-      onClick={() => !player && !winner && onClick()}
-      {...rest}
-    >
-      {player}
     </div>
   );
 };

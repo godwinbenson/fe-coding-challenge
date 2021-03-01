@@ -30,7 +30,8 @@ function checkForMatchingRow(arrayOfArrays) {
       cellRows.filter(Boolean).length === 3 &&
       cellRows.every((cell) => cell === cellRows[0])
   );
-  return matchingRow.length > 0;
+  if (matchingRow.length > 0) return true;
+  return false;
 }
 
 function checkGameWon(board = []) {
@@ -53,7 +54,8 @@ function checkGameWon(board = []) {
     return checkForMatchingRow(diagonalCells);
   }
 
-  return checkHorizontal() || checkVertical() || checkDiagonal();
+  if (checkHorizontal() || checkVertical() || checkDiagonal()) return true;
+  return false;
 }
 
 function transpose(array) {
