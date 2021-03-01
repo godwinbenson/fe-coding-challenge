@@ -1,3 +1,63 @@
-.Board {
+.BoardContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.BoardControl {
+  display: flex;
+  justify-items: space-between;
+  align-items: center;
+}
+
+p {
+  font-size: large;
+  font-weight: 600;
+  margin-right: auto;
+}
+
+.BoardGrid {
   margin: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  max-width: 600px;
+  border-radius: 4px;
+  overflow: hidden;
+  border: 2px solid lightgray;
+}
+
+.Cell {
+  height: 96px;
+  width: 96px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  cursor: pointer;
+  font-size: xx-large;
+  border: 2px solid lightgray;
+}
+
+.Cell:hover {
+  background-color: #faf6fa;
+}
+
+.Cell.X {
+  background-color: whitesmoke;
+  cursor: not-allowed;
+  color: blue;
+}
+
+.Cell.O {
+  background-color: whitesmoke;
+  cursor: not-allowed;
+  color: #c544c5;
+}
+
+.Reset:hover {
+  text-decoration: underline;
+  cursor: pointer;
+  color: blue;
 }
